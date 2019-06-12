@@ -1,13 +1,13 @@
 FROM node:carbon-alpine as dist
 WORKDIR /tmp/
-COPY package.json package-lock.json tsconfig.json ./
+COPY package.json tsconfig.json ./
 COPY src/ src/
 RUN npm install
 RUN npm run build
 
 FROM node:carbon-alpine as node_modules
 WORKDIR /tmp/
-COPY package.json package-lock.json ./
+COPY package.json ./
 RUN npm install --production
 
 FROM node:carbon-alpine
