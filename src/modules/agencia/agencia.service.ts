@@ -17,4 +17,16 @@ export class AgenciaService {
   async findAll(): Promise<Agencia[]> {
     return await this.agenciaModel.find().exec();
   }
+
+  async findOne(id: string): Promise<Agencia> {
+    return await this.agenciaModel.findById(id).exec();
+  }
+
+  async update(id: string, updateAgenciaDto: CreateAgenciaDto): Promise<Agencia> {
+    return await this.agenciaModel.findByIdAndUpdate(id, updateAgenciaDto);
+  }
+
+  async delete(id: string) {
+    await this.agenciaModel.findOneAndRemove(id).exec();
+  }
 }
