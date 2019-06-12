@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "start:watch": "nodemon",
-    "prestart:prod": "tsc",
+    "prestart:prod": "npm build",
     "start:prod": "node dist/server.js",
     "heroku-postbuild": "npm install --only=dev --no-shrinkwrap && npm run build"
   },
