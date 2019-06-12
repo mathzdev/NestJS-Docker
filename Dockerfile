@@ -1,17 +1,15 @@
-FROM node:carbon-alpine as dist
-WORKDIR /tmp/
-COPY package.json tsconfig.json ./
-COPY src/ src/
+FROM node:boron
+
+# Create app directory
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+# Install app dependencies
+COPY package.json /usr/src/app/
 RUN npm install
-RUN npm start
 
-FROM node:carbon-alpine as node_modules
-WORKDIR /tmp/
-COPY package.json ./
-RUN npm install --production
+# Bundle app source
+COPY . /usr/src/app
 
-FROM node:carbon-alpine
-WORKDIR /usr/local/nub-api
-COPY --from=node_modules /tmp/node_modules ./node_modules
-COPY --from=dist /tmp/dist ./dist
-CMD ["node", "dist/server.js"]
+EXPOSE 8080
+CMD [ "npm", "start" ]
