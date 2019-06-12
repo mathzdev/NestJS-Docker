@@ -7,7 +7,6 @@ export const AgenciaSchema = new mongoose.Schema(
     endereco: String
   },
   {
-    collection: 'agencia',
-    read: 'nearest'
+    collection: 'agencia'
   }
 );
