@@ -3,7 +3,7 @@ WORKDIR /tmp/
 COPY package.json tsconfig.json ./
 COPY src/ src/
 RUN npm install
-RUN npm run start
+RUN npm start
 
 FROM node:carbon-alpine as node_modules
 WORKDIR /tmp/
