@@ -4,4 +4,4 @@ Imagem docker e código fonte de uma aplicação NestJS (Node) que gerencia Usu�
 ## Swagger
 Para acessar a API pela interface do swagger, utilize o link: http://localhost:3000/api/#/
 
-### Live Demo Heroku https://nestjs-docker-matheus.herokuapp.com/api/#/
+### Live Demo Heroku http://nestjs-docker-matheus.herokuapp.com/api/#/
